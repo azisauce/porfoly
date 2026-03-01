@@ -10,7 +10,7 @@ export default function About() {
         <section className={styles.about} id="about">
             <div className="container">
                 <div className={styles.bio}>
-                    <h2>Driven by logic, inspired by design.</h2>
+                    <h2>Obsessed with the why behind the what.</h2>
                     {personalInfo.bio.map((paragraph, index) => (
                         <p key={index}>{paragraph}</p>
                     ))}

@@ -3,11 +3,12 @@ import { ProfileData } from '@/types';
 const profileData: ProfileData = {
     personalInfo: {
         name: 'Turki Aziz',
-        title: 'Full-Stack Engineer',
-        subtitle: 'specializing in scalable APIs',
+        title: 'Software Engineer',
+        subtitle: 'I build systems that hold up under pressure.',
+        description: 'Full-stack engineer with a focus on clean architecture and real-world performance. From backend systems and database design to responsive frontends — I care about the craft end to end.',
         bio: [
-            'I am a software engineer with strong experience in building web applications. I hold an Engineering Degree in ICT from Sup\'Com Tunisia, and I am deeply passionate about turning complex problems into code, designing server-side logic and clean code structure, and ensuring seamless user experiences.',
-            'When I am not coding, I am contributing to open source projects or pushing the boundaries of personal projects. I value code quality, architectural patterns, testing and adapting to the ever-evolving tech landscape.',
+            'I\'m a software engineer who genuinely gets excited about how things are built under the hood. Not just "it works" — but why it works, what breaks it at scale, and how to design it so the next person doesn\'t suffer. I hold an Engineering Degree in ICT from Sup\'Com Tunisia, but honestly most of what I know came from breaking things and being too stubborn to leave them broken.',
+            'I obsess over architecture, clean abstractions, and the kind of code that reads like it was meant to exist. When I\'m not deep in a codebase, I\'m probably starting a side project at 11pm because some random idea wouldn\'t leave me alone. That curiosity is what keeps me sharp — and occasionally sleep-deprived.',
         ],
         location: 'Ariana, Tunisia',
         email: 'mohamedaziz.torki@supcom.tn',

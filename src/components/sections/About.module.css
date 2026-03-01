@@ -1,6 +1,7 @@
 .about {
     padding: var(--space-20) 0;
     background: var(--color-bg);
+    text-align: center;
 }
 
 .bio h2 {
@@ -15,7 +16,9 @@
     color: var(--color-text-secondary);
     line-height: 1.8;
     margin-bottom: var(--space-4);
-    max-width: 720px;
+    max-width: 920px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Stats bar */

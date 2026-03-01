@@ -11,7 +11,7 @@ export default function Projects() {
                 <div className={styles.headerRow}>
                     <div>
                         <h2>Featured Projects</h2>
-                        <p>A selection of projects that demonstrates my ability to solve real-world problems.</p>
+                        <p>A handful of things I've built recently — each one a different problem, the same obsession with getting it right.</p>
                     </div>
                     <a href={profileData.personalInfo.github} className={styles.viewAll} target="_blank" rel="noopener noreferrer">
                         View All →

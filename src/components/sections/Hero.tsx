@@ -13,12 +13,12 @@ export default function Hero() {
 
             <div className={`container ${styles.inner}`}>
                 <div className={styles.content}>
-                    {personalInfo.availableForHire && (
+                    {/* {personalInfo.availableForHire && (
                         <div className={styles.badge}>
                             <span className={styles.badgeDot} />
                             AVAILABLE FOR HIRE
                         </div>
-                    )}
+                    )} */}
 
                     <p className={styles.greeting}>
                         Hello, I&apos;m <span className={styles.greetingName}>Aziz Turki</span> 👋
@@ -31,9 +31,7 @@ export default function Hero() {
                     </h1>
 
                     <p className={styles.subtitle}>
-                        Building robust backends and intuitive frontends with modern
-                        technologies. Passionate about clean code, performance
-                        optimization, and user-centric design patterns.
+                        {personalInfo.description}
                     </p>
 
                     <div className={styles.actions}>
