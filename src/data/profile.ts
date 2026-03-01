@@ -25,14 +25,24 @@ const profileData: ProfileData = {
             skills: ['JavaScript', 'TypeScript', 'Python', 'C/C++', 'PHP'],
         },
         {
-            icon: 'backend',
-            title: 'Backend & Cloud',
-            skills: ['Node.js', 'NestJS', 'Express.js', 'FastAPI', 'Laravel', 'Docker', 'Nginx', 'GitHub Actions', 'CI/CD'],
-        },
-        {
             icon: 'frontend',
             title: 'Frontend',
             skills: ['React', 'Next.js', 'Angular', 'Vue.js', 'Tailwind CSS'],
+        },
+        {
+            icon: 'backend',
+            title: 'Backend',
+            skills: ['Node.js', 'NestJS', 'Express.js', 'FastAPI', 'Laravel'],
+        },
+        {
+            icon: 'devops',
+            title: 'DevOps',
+            skills: ['Docker', 'Nginx', 'GitHub Actions', 'CI/CD', 'Linux'],
+        },
+        {
+            icon: 'cloud',
+            title: 'Cloud',
+            skills: ['AWS', 'Vercel', 'Neon', 'Cloudinary'],
         },
     ],
 

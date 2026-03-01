@@ -6,12 +6,16 @@ import profileData from '@/data/profile';
 import CodeIcon from '@mui/icons-material/Code';
 import StorageIcon from '@mui/icons-material/Storage';
 import BrushIcon from '@mui/icons-material/Brush';
+import TerminalIcon from '@mui/icons-material/Terminal';
+import CloudIcon from '@mui/icons-material/Cloud';
 import { SvgIconComponent } from '@mui/icons-material';
 
 const iconMap: Record<string, SvgIconComponent> = {
     languages: CodeIcon,
     backend: StorageIcon,
     frontend: BrushIcon,
+    devops: TerminalIcon,
+    cloud: CloudIcon,
 };
 
 export default function Skills() {
