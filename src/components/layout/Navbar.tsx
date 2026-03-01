@@ -3,6 +3,9 @@
 import React, { useState, useEffect } from 'react';
 import styles from './Navbar.module.css';
 import DescriptionIcon from '@mui/icons-material/Description';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import DownloadIcon from '@mui/icons-material/Download';
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 
 const navItems = [
     { label: 'Home', href: '#home', id: 'home' },
@@ -16,6 +19,18 @@ const navItems = [
 export default function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
     const [activeSection, setActiveSection] = useState('home');
+    const [resumeDropdownOpen, setResumeDropdownOpen] = useState(false);
+
+    useEffect(() => {
+        const handleClickOutside = (e: MouseEvent) => {
+            const target = e.target as HTMLElement;
+            if (!target.closest('[data-resume-dropdown]')) {
+                setResumeDropdownOpen(false);
+            }
+        };
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => document.removeEventListener('mousedown', handleClickOutside);
+    }, []);
 
     useEffect(() => {
         const NAVBAR_HEIGHT = 80;
@@ -91,15 +106,40 @@ export default function Navbar() {
                             {item.label}
                         </a>
                     ))}
-                    <a
-                        href="/Turki_Aziz_Resume.pdf"
-                        download="Turki_Aziz_Resume.pdf"
-                        className={styles.resumeBtn}
-                        onClick={() => setMenuOpen(false)}
-                    >
-                        <DescriptionIcon sx={{ fontSize: 18 }} />
-                        Resume
-                    </a>
+                    <div className={styles.resumeContainer} data-resume-dropdown>
+                        <button
+                            className={styles.resumeBtn}
+                            onClick={() => setResumeDropdownOpen(!resumeDropdownOpen)}
+                        >
+                            <DescriptionIcon sx={{ fontSize: 18 }} />
+                            Resume
+                            <ExpandMoreIcon sx={{ fontSize: 18, transition: 'transform 0.2s', transform: resumeDropdownOpen ? 'rotate(180deg)' : 'rotate(0)' }} />
+                        </button>
+
+                        {resumeDropdownOpen && (
+                            <div className={styles.resumeDropdown}>
+                                <a
+                                    href="/Turki_Aziz_Resume.pdf"
+                                    download="Turki_Aziz_Resume.pdf"
+                                    className={styles.dropdownItem}
+                                    onClick={() => { setResumeDropdownOpen(false); setMenuOpen(false); }}
+                                >
+                                    <DownloadIcon sx={{ fontSize: 18 }} />
+                                    Install PDF
+                                </a>
+                                <a
+                                    href="https://drive.google.com/file/d/1_2QQcr_wyH7I1_O7P9ZbQLwD1q_gu10I/view?usp=sharing"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className={styles.dropdownItem}
+                                    onClick={() => { setResumeDropdownOpen(false); setMenuOpen(false); }}
+                                >
+                                    <OpenInNewIcon sx={{ fontSize: 18 }} />
+                                    View Online
+                                </a>
+                            </div>
+                        )}
+                    </div>
                 </div>
             </div>
         </nav>
