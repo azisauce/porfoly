@@ -21,11 +21,19 @@ export default function ProjectCard({ project }: ProjectCardProps) {
     return (
         <div className={styles.card}>
             <div className={styles.cardImage}>
-                <div className={styles.cardImagePlaceholder}>
-                    {placeholderIconMap[project.name] ?? (
-                        <LanguageIcon sx={{ fontSize: 64, color: 'rgba(255,255,255,0.4)' }} />
-                    )}
-                </div>
+                {project.image ? (
+                    <img
+                        src={project.image}
+                        alt={`${project.name} screenshot`}
+                        className={styles.projectImage}
+                    />
+                ) : (
+                    <div className={styles.cardImagePlaceholder}>
+                        {placeholderIconMap[project.name] ?? (
+                            <LanguageIcon sx={{ fontSize: 64, color: 'rgba(255,255,255,0.4)' }} />
+                        )}
+                    </div>
+                )}
             </div>
 
             <div className={styles.cardBody}>

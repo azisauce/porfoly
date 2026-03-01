@@ -31,6 +31,17 @@
     background: linear-gradient(135deg, #0d9488, #06b6d4);
 }
 
+.projectImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+}
+
+.card:hover .projectImage {
+    transform: scale(1.05);
+}
+
 .cardBody {
     padding: var(--space-6);
     display: flex;
