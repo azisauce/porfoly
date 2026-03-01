@@ -1,6 +1,8 @@
 import React from 'react';
 import styles from './Experience.module.css';
 import profileData from '@/data/profile';
+import WorkIcon from '@mui/icons-material/Work';
+import SchoolIcon from '@mui/icons-material/School';
 
 export default function Experience() {
     const { experiences, education } = profileData;
@@ -12,7 +14,7 @@ export default function Experience() {
                     {/* Work Experience */}
                     <div className={styles.column}>
                         <h3>
-                            <span className={styles.columnIcon}>💼</span>
+                            <span className={styles.columnIcon}><WorkIcon /></span>
                             Work Experience
                         </h3>
                         <div className={styles.timeline}>
@@ -35,7 +37,7 @@ export default function Experience() {
                     {/* Education */}
                     <div className={styles.column}>
                         <h3>
-                            <span className={styles.columnIcon}>🎓</span>
+                            <span className={styles.columnIcon}><SchoolIcon /></span>
                             Education & Certs
                         </h3>
                         <div className={styles.timeline}>

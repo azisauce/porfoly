@@ -2,6 +2,8 @@ import React from 'react';
 import styles from './Hero.module.css';
 import Button from '@/components/ui/Button';
 import profileData from '@/data/profile';
+import WorkIcon from '@mui/icons-material/Work';
+import WavingHandIcon from '@mui/icons-material/WavingHand';
 
 export default function Hero() {
     const { personalInfo } = profileData;
@@ -13,15 +15,8 @@ export default function Hero() {
 
             <div className={`container ${styles.inner}`}>
                 <div className={styles.content}>
-                    {/* {personalInfo.availableForHire && (
-                        <div className={styles.badge}>
-                            <span className={styles.badgeDot} />
-                            AVAILABLE FOR HIRE
-                        </div>
-                    )} */}
-
                     <p className={styles.greeting}>
-                        Hello, I&apos;m <span className={styles.greetingName}>Aziz Turki</span> 👋
+                        Hello, I&apos;m <span className={styles.greetingName}>Aziz Turki</span> <WavingHandIcon sx={{ fontSize: 28, verticalAlign: 'middle', color: '#facc15' }} />
                     </p>
 
                     <h1 className={styles.headline}>
@@ -42,23 +37,6 @@ export default function Hero() {
                             Contact Me
                         </Button>
                     </div>
-
-                    {/* <div className={styles.socialProof}>
-                        <div className={styles.avatars}>
-                            {['#0d9488', '#0ea5e9', '#8b5cf6', '#f59e0b'].map((color, i) => (
-                                <div
-                                    key={i}
-                                    className={styles.avatar}
-                                    style={{ background: color }}
-                                >
-                                    {String.fromCharCode(65 + i)}
-                                </div>
-                            ))}
-                        </div>
-                        <div className={styles.proofText}>
-                            <span className={styles.proofNumber}>10+</span> Projects Delivered
-                        </div>
-                    </div> */}
                 </div>
 
                 <div className={styles.imageWrapper}>
@@ -71,7 +49,9 @@ export default function Hero() {
                         />
                     </div>
                     <div className={styles.floatingCard}>
-                        <div className={styles.floatingIcon}>💼</div>
+                        <div className={styles.floatingIcon}>
+                            <WorkIcon sx={{ fontSize: 28 }} />
+                        </div>
                         <div>
                             <div className={styles.floatingLabel}>Experience</div>
                             <div className={styles.floatingValue}>3+ Years</div>

@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import styles from './Navbar.module.css';
+import DescriptionIcon from '@mui/icons-material/Description';
 
 const navItems = [
     { label: 'Home', href: '#home', id: 'home' },
@@ -90,8 +91,14 @@ export default function Navbar() {
                             {item.label}
                         </a>
                     ))}
-                    <a href="#contact" className={styles.resumeBtn} onClick={() => setMenuOpen(false)}>
-                        📄 Resume
+                    <a
+                        href="/Turki_Aziz_Resume.pdf"
+                        download="Turki_Aziz_Resume.pdf"
+                        className={styles.resumeBtn}
+                        onClick={() => setMenuOpen(false)}
+                    >
+                        <DescriptionIcon sx={{ fontSize: 18 }} />
+                        Resume
                     </a>
                 </div>
             </div>

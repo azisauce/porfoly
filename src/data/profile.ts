@@ -20,17 +20,17 @@ const profileData: ProfileData = {
 
     skills: [
         {
-            icon: '💬',
+            icon: 'languages',
             title: 'Languages',
             skills: ['JavaScript', 'TypeScript', 'Python', 'C/C++', 'PHP'],
         },
         {
-            icon: '⚙️',
+            icon: 'backend',
             title: 'Backend & Cloud',
             skills: ['Node.js', 'NestJS', 'Express.js', 'FastAPI', 'Laravel', 'Docker', 'Nginx', 'GitHub Actions', 'CI/CD'],
         },
         {
-            icon: '🎨',
+            icon: 'frontend',
             title: 'Frontend',
             skills: ['React', 'Next.js', 'Angular', 'Vue.js', 'Tailwind CSS'],
         },
@@ -105,7 +105,8 @@ const profileData: ProfileData = {
             description: 'A Next.js web app that ranks user-submitted items based on configurable scoring parameters with a dynamic scoring engine supporting grouped items and customizable formulas.',
             image: '/images/project-priority.jpg',
             techStack: ['Next.js', 'Neon', 'Cloudinary', 'Vercel'],
-            liveUrl: 'https://priority-umber.vercel.app/',
+            githubUrl: 'https://github.com/azisauce/priority',
+            liveUrl: 'https://priority.etorkie.tech/',
         },
         {
             name: 'tekoKard',

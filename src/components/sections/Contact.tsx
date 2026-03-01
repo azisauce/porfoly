@@ -3,6 +3,10 @@
 import React from 'react';
 import styles from './Contact.module.css';
 import profileData from '@/data/profile';
+import EmailIcon from '@mui/icons-material/Email';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import GitHubIcon from '@mui/icons-material/GitHub';
 
 export default function Contact() {
     const { personalInfo } = profileData;
@@ -27,7 +31,7 @@ export default function Contact() {
                         </p>
 
                         <div className={styles.contactDetail}>
-                            <div className={styles.contactIcon}>✉️</div>
+                            <div className={styles.contactIcon}><EmailIcon /></div>
                             <div>
                                 <div className={styles.contactLabel}>Email</div>
                                 <div className={styles.contactValue}>{personalInfo.email}</div>
@@ -35,7 +39,7 @@ export default function Contact() {
                         </div>
 
                         <div className={styles.contactDetail}>
-                            <div className={styles.contactIcon}>📍</div>
+                            <div className={styles.contactIcon}><LocationOnIcon /></div>
                             <div>
                                 <div className={styles.contactLabel}>Location</div>
                                 <div className={styles.contactValue}>{personalInfo.location}</div>
@@ -52,7 +56,7 @@ export default function Contact() {
                                     className={styles.socialIcon}
                                     aria-label="LinkedIn"
                                 >
-                                    in
+                                    <LinkedInIcon />
                                 </a>
                                 <a
                                     href={personalInfo.github}
@@ -61,7 +65,7 @@ export default function Contact() {
                                     className={styles.socialIcon}
                                     aria-label="GitHub"
                                 >
-                                    ⌨
+                                    <GitHubIcon />
                                 </a>
                             </div>
                         </div>
