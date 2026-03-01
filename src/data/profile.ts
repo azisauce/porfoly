@@ -47,9 +47,8 @@ const profileData: ProfileData = {
     ],
 
     stats: [
-        { value: '3+', label: 'Years Exp.' },
+        { value: '2+', label: 'Years Exp.' },
         { value: '10+', label: 'Projects' },
-        { value: '4', label: 'Internships' },
     ],
 
     experiences: [

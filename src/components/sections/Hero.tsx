@@ -54,7 +54,7 @@ export default function Hero() {
                         </div>
                         <div>
                             <div className={styles.floatingLabel}>Experience</div>
-                            <div className={styles.floatingValue}>3+ Years</div>
+                            <div className={styles.floatingValue}>2+ Years</div>
                         </div>
                     </div>
                 </div>
