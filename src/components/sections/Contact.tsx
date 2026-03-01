@@ -1,15 +1,70 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './Contact.module.css';
 import profileData from '@/data/profile';
 import EmailIcon from '@mui/icons-material/Email';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
+import SendIcon from '@mui/icons-material/Send';
+import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
+import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
+
+type FormStatus = 'idle' | 'loading' | 'success' | 'error';
+
+interface FormState {
+    firstName: string;
+    lastName: string;
+    email: string;
+    message: string;
+}
 
 export default function Contact() {
     const { personalInfo } = profileData;
+
+    const [form, setForm] = useState<FormState>({
+        firstName: '',
+        lastName: '',
+        email: '',
+        message: '',
+    });
+    const [status, setStatus] = useState<FormStatus>('idle');
+    const [errorMessage, setErrorMessage] = useState('');
+
+    const handleChange = (
+        e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    ) => {
+        setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    };
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setStatus('loading');
+        setErrorMessage('');
+
+        try {
+            const res = await fetch('/api/send-email', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(form),
+            });
+
+            const data = await res.json();
+
+            if (!res.ok) {
+                throw new Error(data.error || 'Failed to send message.');
+            }
+
+            setStatus('success');
+            setForm({ firstName: '', lastName: '', email: '', message: '' });
+        } catch (err: unknown) {
+            setStatus('error');
+            setErrorMessage(
+                err instanceof Error ? err.message : 'Something went wrong. Please try again.'
+            );
+        }
+    };
 
     return (
         <section className={styles.contact} id="contact">
@@ -72,30 +127,93 @@ export default function Contact() {
                     </div>
 
                     {/* Right — Form */}
-                    <form className={styles.form} onSubmit={(e) => e.preventDefault()}>
+                    <form className={styles.form} onSubmit={handleSubmit} noValidate>
                         <div className={styles.formRow}>
                             <div className={styles.inputGroup}>
                                 <label htmlFor="firstName">First Name</label>
-                                <input type="text" id="firstName" placeholder="John" />
+                                <input
+                                    type="text"
+                                    id="firstName"
+                                    name="firstName"
+                                    placeholder="John"
+                                    value={form.firstName}
+                                    onChange={handleChange}
+                                    required
+                                    disabled={status === 'loading'}
+                                />
                             </div>
                             <div className={styles.inputGroup}>
                                 <label htmlFor="lastName">Last Name</label>
-                                <input type="text" id="lastName" placeholder="Doe" />
+                                <input
+                                    type="text"
+                                    id="lastName"
+                                    name="lastName"
+                                    placeholder="Doe"
+                                    value={form.lastName}
+                                    onChange={handleChange}
+                                    required
+                                    disabled={status === 'loading'}
+                                />
                             </div>
                         </div>
 
                         <div className={styles.inputGroup}>
                             <label htmlFor="email">Email</label>
-                            <input type="email" id="email" placeholder="john@example.com" />
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="john@example.com"
+                                value={form.email}
+                                onChange={handleChange}
+                                required
+                                disabled={status === 'loading'}
+                            />
                         </div>
 
                         <div className={styles.inputGroup}>
                             <label htmlFor="message">Message</label>
-                            <textarea id="message" placeholder="Tell me about your project..." />
+                            <textarea
+                                id="message"
+                                name="message"
+                                placeholder="Tell me about your project..."
+                                value={form.message}
+                                onChange={handleChange}
+                                required
+                                disabled={status === 'loading'}
+                            />
                         </div>
 
-                        <button type="submit" className={styles.submitBtn}>
-                            Send Message
+                        {/* Feedback */}
+                        {status === 'success' && (
+                            <div className={styles.feedbackSuccess}>
+                                <CheckCircleOutlineIcon sx={{ fontSize: 20 }} />
+                                Message sent! I&apos;ll get back to you soon.
+                            </div>
+                        )}
+                        {status === 'error' && (
+                            <div className={styles.feedbackError}>
+                                <ErrorOutlineIcon sx={{ fontSize: 20 }} />
+                                {errorMessage}
+                            </div>
+                        )}
+
+                        <button
+                            type="submit"
+                            className={`${styles.submitBtn} ${status === 'loading' ? styles.submitBtnLoading : ''}`}
+                            disabled={status === 'loading'}
+                        >
+                            {status === 'loading' ? (
+                                <>
+                                    <span className={styles.spinner} />
+                                    Sending...
+                                </>
+                            ) : (
+                                <>
+                                    <SendIcon sx={{ fontSize: 18 }} />
+                                    Send Message
+                                </>
+                            )}
                         </button>
                     </form>
                 </div>
