@@ -1,0 +1,17 @@
+.badge {
+    display: inline-block;
+    padding: var(--space-1) var(--space-3);
+    background: var(--color-primary-glow);
+    color: var(--color-primary);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    border-radius: var(--radius-full);
+    border: 1px solid rgba(13, 148, 136, 0.2);
+    transition: all var(--transition-base);
+}
+
+.badge:hover {
+    background: var(--color-primary);
+    color: #fff;
+    transform: translateY(-1px);
+}

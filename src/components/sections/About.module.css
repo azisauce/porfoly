@@ -1,0 +1,39 @@
+.about {
+    padding: var(--space-20) 0;
+    background: var(--color-bg);
+}
+
+.bio h2 {
+    font-size: var(--font-size-3xl);
+    font-weight: 800;
+    color: var(--color-text);
+    margin-bottom: var(--space-6);
+}
+
+.bio p {
+    font-size: var(--font-size-base);
+    color: var(--color-text-secondary);
+    line-height: 1.8;
+    margin-bottom: var(--space-4);
+    max-width: 720px;
+}
+
+/* Stats bar */
+.statsBar {
+    margin-top: var(--space-12);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-4);
+    background: var(--color-bg-alt);
+    border-radius: var(--radius-xl);
+    padding: var(--space-8) var(--space-4);
+    border: 1px solid var(--color-border);
+}
+
+@media (max-width: 768px) {
+    .statsBar {
+        grid-template-columns: 1fr;
+        gap: var(--space-6);
+        text-align: center;
+    }
+}
